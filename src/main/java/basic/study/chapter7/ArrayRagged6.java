@@ -12,7 +12,7 @@ public class ArrayRagged6 {
 
         for (int student = 0; student < score.length; student++) {
             System.out.println((student + 1) + "번 학생의 성적 : ");
-            for (int subject = 0; subject < score[student].length; subject++) {
+            for (int subject = 0; subject < score[student].length; subject++) {     // 조건에 student < score.length 는 에러.
                 System.out.print(score[student][subject] + " ");
             }
             System.out.println();
