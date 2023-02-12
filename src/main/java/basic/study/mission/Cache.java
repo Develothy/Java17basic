@@ -13,10 +13,8 @@ public class Cache {
 
     static int calc(int value) throws InterruptedException {
 
-        if (!cache.isEmpty()) {
-            if (cache.containsKey(value)) {
-                return cache.get(value);
-            }
+        if (!cache.isEmpty() && cache.containsKey(value)) {
+            return cache.get(value);
         }
 
         TimeUnit.SECONDS.sleep(3);
