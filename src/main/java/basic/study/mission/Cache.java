@@ -1,5 +1,8 @@
 package basic.study.mission;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -11,7 +14,8 @@ public class Cache {
 
     static Map<Integer, Integer> cache = new HashMap<>();
 
-    static int calc(int value) throws InterruptedException {
+    //@Cacheable(value = "calc")
+    public static int calc(int value) throws InterruptedException {
 
         if (!cache.isEmpty() && cache.containsKey(value)) {
             return cache.get(value);
