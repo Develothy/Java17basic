@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Cache {
 
-    private static Map<Long, Long> cache = new HashMap<>();
+    private static Map<Integer, Integer> cache = new HashMap<>();
 
     //@Cacheable(value = "calc")
-    public static Long calc(Long value) throws InterruptedException {
+    public static int calc(int value) throws InterruptedException {
 
         if (!cache.isEmpty() && cache.containsKey(value)) {
             return cache.get(value);
@@ -27,7 +27,7 @@ public class Cache {
     public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
-        Long num;
+        int num;
 
         for (int i = 0; i <= 10; i++) {
 
@@ -36,7 +36,7 @@ public class Cache {
                 System.out.println("숫자만 입력해주세요!! 다시!");
                 sc.next();
             }
-            num = Long.valueOf(sc.nextInt());
+            num = sc.nextInt();
             System.out.println("호출 시간 : " + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS")));
             System.out.println(calc(num));
             System.out.println("응답 시간 : " + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS")));
