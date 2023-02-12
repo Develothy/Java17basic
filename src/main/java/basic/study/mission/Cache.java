@@ -1,8 +1,5 @@
 package basic.study.mission;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
-
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
@@ -12,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 
 public class Cache {
 
-    static Map<Integer, Integer> cache = new HashMap<>();
+    private static Map<Long, Long> cache = new HashMap<>();
 
     //@Cacheable(value = "calc")
-    public static int calc(int value) throws InterruptedException {
+    public static Long calc(Long value) throws InterruptedException {
 
         if (!cache.isEmpty() && cache.containsKey(value)) {
             return cache.get(value);
@@ -23,14 +20,14 @@ public class Cache {
 
         TimeUnit.SECONDS.sleep(3);
         cache.put(value, value *= 100000);
-        return value *= 100000;
+        return value;
     }
 
 
     public static void main(String[] args) throws InterruptedException {
 
         Scanner sc = new Scanner(System.in);
-        int num;
+        Long num;
 
         for (int i = 0; i <= 10; i++) {
 
@@ -39,7 +36,7 @@ public class Cache {
                 System.out.println("숫자만 입력해주세요!! 다시!");
                 sc.next();
             }
-            num = sc.nextInt();
+            num = Long.valueOf(sc.nextInt());
             System.out.println("호출 시간 : " + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS")));
             System.out.println(calc(num));
             System.out.println("응답 시간 : " + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS")));
