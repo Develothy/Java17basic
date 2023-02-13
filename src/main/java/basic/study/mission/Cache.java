@@ -38,8 +38,7 @@ public class Cache {
 
             System.out.println("숫자를 입력하세요(1 ~ 10) : " + i);
             while (!sc.hasNextInt()) {
-                System.out.println("숫자만 입력해주세요!! 다시!");
-                sc.next();
+                System.out.println(sc.next() + "는 숫자가 아닙니다!! 다시!");
             }
             num = sc.nextInt();
             System.out.println("호출 시간 : " + ZonedDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS")));
