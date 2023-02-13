@@ -12,19 +12,24 @@ public class Cache {
     private static Map<Integer, Integer> cache = new HashMap<>();
 
     //@Cacheable(value = "calc")
-    public static int calc(int value) throws InterruptedException {
+    public static int calc(int value) {
 
         if (!cache.isEmpty() && cache.containsKey(value)) {
             return cache.get(value);
         }
 
-        TimeUnit.SECONDS.sleep(3);
+        try {
+            TimeUnit.SECONDS.sleep(3);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+            System.out.println("슬립 중 interrupt 발생!");
+        }
         cache.put(value, value *= 100000);
         return value;
     }
 
 
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
         int num;
