@@ -4,7 +4,7 @@ public class Range {
     private int from;
     private int to;
 
-    Range(int from, int to) {
+    public Range(int from, int to) {
         setFrom(from);
         setTo(to);
     }

@@ -2,24 +2,24 @@ package basic.study.chapter10;
 
 public class Car {
 
-    String name;
+    public String name;
     boolean gasoline;
-    static int carNum;      // 객체인스턴스 단위 필드가 아닌 클래스의 정적 필드
+    public static int carNum;      // 객체인스턴스 단위 필드가 아닌 클래스의 정적 필드
 
     static {
         carNum = 1000;      // 정적 초기화 블록     // 생성자에서 초기화 시 객체 생성 시마다 초기화 됨
     }
 
-    Car(String name, boolean gasoline) {
+    public Car(String name, boolean gasoline) {
         this.name = name;
         this.gasoline = gasoline;
         carNum++;
     }
 
-    static void resetNum(){
+    public static void resetNum(){
         carNum = 0;
     }
-    static void printNum() {
+    public static void printNum() {
         System.out.println("현재 출고 대수 : " + carNum);
     }
 

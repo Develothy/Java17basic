@@ -14,7 +14,7 @@ public class Bus {
         arInfo[5] = new Station("옥수", 18, 150);
         arInfo[6] = new Station("압구정", 23, 300);
     }
-    void printFare(int from, int to) {
+    public static void printFare(int from, int to) {
         int fare = 0;
 
         for(int i = from; i <= to; i++) {

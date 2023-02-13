@@ -8,7 +8,7 @@ public class Time {
 
     Time() {}
 
-    Time(int hour, int minute, int second) {
+    public Time(int hour, int minute, int second) {
         setHour(hour);
         setMinute(minute);
         setSecond(second);
@@ -46,7 +46,7 @@ public class Time {
         }
     }
 
-    void whatTime() {
+    public void whatTime() {
         System.out.print(am ? "오전 " : "오후 ");
         System.out.println(hour +"시 "+minute+"분 "+second+"초");
     }

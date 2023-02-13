@@ -3,7 +3,7 @@ package basic.study.chapter10;
 public class CarTest {
     public static void main(String[] args) {
 
-        System.out.println("생성 전 carNum : "+Car.carNum);
+        System.out.println("생성 전 carNum : "+ Car.carNum);
 
         Car korando = new Car("코란도C", false);
         System.out.println(korando.name+" : "+Car.carNum);

@@ -17,6 +17,6 @@ public class BusTest {
         printNum();
 
         // static 상수 GIGA (NoteBook 생성 X)
-        System.out.println(GIGA);
+        System.out.println("NoteBook의 GIGA : " + GIGA);
     }
 }
