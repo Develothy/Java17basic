@@ -13,22 +13,21 @@ public class RandomPlayList {
         List<String> playList = makePlayList(playListSize);
         List<Integer> last3 = new LinkedList<>();
 
-        for(int i = 0; i < playCnt ; i++){
+        for(int i = 0; i < playCnt ; i++) {
 
-            for (;;) {
-                int musicNum = (int) (Math.random() * 10);
-                System.out.println("나오면 안되는 음악! : " + last3);
-                if (!last3.contains(musicNum)) {
-                    System.out.println(playList.get(musicNum)+" ~ ♬");
+            System.out.println("나오면 안되는 음악! : " + last3);
 
-                    if (last3.size() == 3) {
-                        last3.remove(last3.size() - 1);
-                    }
-                    last3.add(0, musicNum);
+            int musicNum;
+            do {
+                musicNum = (int) (Math.random() * playListSize);
+            } while (last3.contains(musicNum));
+            System.out.println(playList.get(musicNum) + " ~ ♬");
 
-                    break ;
-                }
+            if (last3.size() == 3) {
+                last3.remove(last3.size() - 1);
             }
+            last3.add(0, musicNum);
+
         }
     }
 
