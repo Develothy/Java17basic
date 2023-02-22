@@ -24,7 +24,7 @@ public class Car {
     }
 
     void run() {
-        if(gasoline) {
+        if (gasoline) {
             System.out.println("부릉부릉");
         } else {
             System.out.println("덜컹덜컹");
