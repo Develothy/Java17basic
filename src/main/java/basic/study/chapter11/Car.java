@@ -1,4 +1,4 @@
-package basic.study.chapter10;
+package basic.study.chapter11;
 
 public class Car {
 
