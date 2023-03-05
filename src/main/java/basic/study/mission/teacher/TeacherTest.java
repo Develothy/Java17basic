@@ -1,10 +1,5 @@
 package basic.study.mission.teacher;
 
-import basic.study.chapter11.Human;
-
-import java.util.ArrayList;
-import java.util.List;
-
 public class TeacherTest {
 
     public static void main(String[] args) {
