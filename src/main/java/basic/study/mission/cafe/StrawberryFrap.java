@@ -1,4 +1,4 @@
-package basic.study.mission.Cafe;
+package basic.study.mission.cafe;
 
 public class StrawberryFrap extends Frappuccino {
 

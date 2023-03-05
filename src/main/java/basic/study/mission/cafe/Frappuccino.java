@@ -1,4 +1,4 @@
-package basic.study.mission.Cafe;
+package basic.study.mission.cafe;
 
 abstract class Frappuccino extends CafeMenu implements IceOnly{
 
