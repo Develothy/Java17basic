@@ -20,4 +20,9 @@ public class BananaFrap extends Frappuccino {
         this.price = 7000;
     }
 
+    @Override
+    public void info() {
+        System.out.println("바나나가 통으로 들어가서 맛있어요!");
+    }
+
 }

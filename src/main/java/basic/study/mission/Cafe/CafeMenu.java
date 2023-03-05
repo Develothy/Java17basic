@@ -13,6 +13,10 @@ abstract class CafeMenu implements Payment{
         S, M
     }
 
+    public void info() {
+        System.out.println("어서오세요~ 카페입니당~");
+    }
+
     public void setSoldOut(){
         isSoldOut = !isSoldOut;
     }

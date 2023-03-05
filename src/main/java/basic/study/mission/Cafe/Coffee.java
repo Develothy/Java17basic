@@ -7,7 +7,7 @@ abstract class Coffee extends CafeMenu {
     int shot = 2;
 
     public Coffee(String coffeeBean) {
-        super();
+        this.coffeeBean = coffeeBean;
         order(coffeeBean);
     }
 
@@ -15,8 +15,8 @@ abstract class Coffee extends CafeMenu {
         System.out.println(coffeeBean + " 원두를 선택하셨군요?");
     }
 
-    public void grind(String coffeeBean) {
-        System.out.println(coffeeBean + "원두를 갑니다!");
+    public void grind(Coffee coffee) {
+        System.out.println(coffee.coffeeBean + " 원두를 갑니다!");
     }
 
     public void addShot(int amount) {
@@ -32,6 +32,7 @@ abstract class Coffee extends CafeMenu {
 
     @Override
     public void printRecipe() {
+        System.out.println("영수증을 확인해주세요!");
         String orderSuccess ="""
                 ===============================
                 메뉴 :\s""" + name + size + """
@@ -43,6 +44,11 @@ abstract class Coffee extends CafeMenu {
                 ===============================
                 """;
         System.out.println(orderSuccess);
+    }
+
+    @Override
+    public void info() {
+        System.out.println("커피 메뉴는 샷 추가가 가능합니다~");
     }
 
     @Override

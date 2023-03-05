@@ -16,4 +16,9 @@ public class StrawberryFrap extends Frappuccino {
     public void addPoint() {
         System.out.println("딸기 이벤트!! 딸기 음료 한잔 당 3포인트를 적립해드립니다!");
     }
+
+    @Override
+    public void info() {
+        System.out.println("싱싱한 생딸기를 듬뿍 넣었어요!");
+    }
 }

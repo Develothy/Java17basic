@@ -2,25 +2,46 @@ package basic.study.mission.Cafe;
 
 public class CafeOrderTest {
 
-
     public static void main(String[] args) {
 
-        Americano americano = new Americano("Kenya", CafeMenu.Size.M, true, 1);
-        order(americano);
+        orderAmericano();
+        // orderAddShotAmericano();
+        // orderBananaFrap();
+        // orderStrawberryFrap();
+        // orderLatte();
+    }
 
+    static void orderAmericano() {
+        Coffee americano = new Americano("Kenya", CafeMenu.Size.M, true, 1);
+        americano.info();
+        americano.grind(americano);
+        order(americano);
+    }
+
+    static void orderAddShotAmericano() {
         Americano addShotAmericano = new Americano("Ethiopia", CafeMenu.Size.M, true, 1);
+        addShotAmericano.info();
         addShotAmericano.addShot(1);
         order(addShotAmericano);
-
+    }
+    static void orderBananaFrap() {
         BananaFrap bananaFrap = new BananaFrap();
+        bananaFrap.info();
+        bananaFrap.addIce();
+        bananaFrap.selectIceCup();
+        bananaFrap.useCoupon();
         order(bananaFrap);
-
+    }
+    static void orderStrawberryFrap() {
         StrawberryFrap strawberryFrap = new StrawberryFrap(false, CafeMenu.Size.S, 1);
+        strawberryFrap.info();
+        strawberryFrap.addPoint();
         order(strawberryFrap);
-
+    }
+    static void orderLatte() {
         Latte latte = new Latte();
+        latte.info();
         order(latte);
-
     }
 
     static boolean order(CafeMenu cafeMenu) {
@@ -30,7 +51,6 @@ public class CafeOrderTest {
             return false;
         }
 
-        System.out.println("영수증을 확인해주세요~!");
         if (cafeMenu instanceof Coffee coffeeMenu) {
             if (coffeeMenu instanceof Americano americano) {
                 americano.printRecipe();

@@ -8,6 +8,7 @@ abstract class Frappuccino extends CafeMenu implements IceOnly{
 
     @Override
     public void printRecipe() {
+        System.out.println("영수증을 확인해주세요!");
         String orderSuccess ="""
                 ===============================
                 메뉴 :\s""" + name + size + """
