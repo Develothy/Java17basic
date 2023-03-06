@@ -1,5 +1,7 @@
 package basic.study.chapter13;
 
+import static basic.study.chapter13.Unit.moveAttack;
+
 public class UnitInterfaceTest {
 
     public static void main(String[] args) {
@@ -14,12 +16,17 @@ public class UnitInterfaceTest {
                 new Mutal(),
                 new Zealot(),
                 new SuperMan(),
-                new Firebat()
+                new Firebat(),
+                new DarkTempler(),
+                new Medic()
         };
 
         for (Unit unit : starUnits) {
-            unit.move();
-            unit.attack();
+            System.out.println("======== " + unit.getClass().getSimpleName() + " ========");
+            moveAttack(unit);
+            // unit.move();
+            // unit.attack();
+            unit.die(); // 질럿만 재정의 함
         }
 
     }
