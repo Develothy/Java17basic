@@ -31,7 +31,7 @@ public class RecordTest {
         System.out.println("x = " + x + ", y = " + y);
 
         // 상등비교
-        Point pr2 = new Point(123, 456);
+        PointRecord pr2 = new PointRecord(123, 456);
         System.out.println(pr.equals(pr2));
     }
 }
