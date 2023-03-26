@@ -64,6 +64,7 @@ public class ArrayListBulkTest {
 
         Integer[] ar = new Integer[arNum.size()];
         arNum.toArray(ar);
+        // Integer[] ar = arNum.toArray(new Integer[0]);
         for (int a : ar) {
             System.out.print(a + " ");
         }
