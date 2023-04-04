@@ -49,7 +49,7 @@ public class FileIOTest {
 
     static void fileWriteTest() {
 
-        byte[] data = { 8,9,0,6,2,9,9 };
+        byte[] data = { 8,9,0,6,2,9,9 }; // 한글 입력 시 NumberFormatException
 
         try (FileOutputStream out = new FileOutputStream("test.bin");){
             out.write(data);

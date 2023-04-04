@@ -7,9 +7,9 @@ public class StringCharTest {
 
     public static void main(String[] args) throws IOException {
         FileInputStream in = new FileInputStream("abc.txt");
-        byte[] text = new byte[1000];
+        byte[] text = new byte[in.available()];     // 문자열 입력 시 NumberFormatException
         int num = in.read(text);
-        String utftext = new String(text, "euc-kr");
+        String utftext = new String(text, "utf-8");
         System.out.println("읽은 바이트 수 = " + num);
         System.out.println(utftext);
         in.close();
