@@ -11,8 +11,10 @@ public class StreamTest {
     }
 
     static void intStreamTest() {
-        Stream<Integer> stream = Stream.of(3, 1, 4, 1, 5);
-        stream.forEach(System.out::print);
+        // Stream<Integer> stream = Stream.of(3, 1, 4, 1, 5);
+        // stream.forEach(System.out::print);
+        // 위와 동일
+        Stream.of(3, 1, 4, 1, 5).forEach(System.out::print);
     }
 
     static void arrayStreamTest() {
