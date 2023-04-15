@@ -7,7 +7,7 @@ public class CountryTest {
     public static void main(String[] args) {
 
         oecdTop3();
-        oecdTop3Stream();
+        //oecdTop3Stream();
     }
 
     static void oecdTop3Stream() {
@@ -27,7 +27,9 @@ public class CountryTest {
                 oecd.add(c);
             }
         }
-
+        // 또 다른 정렬
+        // Collections.sort(oecd, Comparator.comparing(Country::getPopu));
+        // oecd.sort(Comparator.comparing(Country::getPopu));
         Collections.sort(oecd, new Comparator<Country>() {
             @Override
             public int compare(Country o1, Country o2) {

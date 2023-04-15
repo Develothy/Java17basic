@@ -10,7 +10,7 @@ public class StreamTest2 {
         //skipTest();
         //limitSkipTest();
         //multipleTest();
-        //sortedTest();
+        sortedTest();
         //compareTest();
         comparing();
     }
@@ -39,7 +39,8 @@ public class StreamTest2 {
 
     static void sortedTest() {
         Data.nara.stream()
-                .map(Country::getName)
+                //.map(Country::getName)
+                .map(Country::getPopu)
                 .sorted()
                 .forEach(n -> System.out.print(n + " "));
     }
