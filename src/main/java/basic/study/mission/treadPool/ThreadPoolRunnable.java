@@ -23,10 +23,10 @@ public class ThreadPoolRunnable implements Runnable {
             try {
                 Thread.sleep(10);
                 System.out.println("ThreadPoolRunnable " + id + " is working");
-                Runnable r = (Runnable) queue.dequeue(); // queue 아이템 반환받음
-                //Thread r = (Thread) queue.dequeue();
-                r.run();
-                //r.start();
+                //Runnable r = (Runnable) queue.dequeue(); // queue 아이템 반환받음
+                Thread r = (Thread) queue.dequeue();
+                //r.run();
+                r.start();
             } catch (InterruptedException e) {
                 System.out.println(e.getMessage());
                 stop();

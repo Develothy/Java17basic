@@ -23,15 +23,15 @@ public class ThreadPoolQueue {
 
         // 현재 큐가 꽉차면 멈춤
         while ( queue.size() == MAX_QUEUE_SIZE ) {
-            System.out.println("큐 최대...");
+            System.out.println("=== 큐 최대...큐 추가 잠시 wait() ===");
             wait();
         }
 
         // 현재 큐가 비어있으면 일하라고 노티
         if (queue.size() == 0) {
-            System.out.println("enqueue notify all~!!");
+            System.out.println("=== 큐 비었음! notify all~!! ===");
         }
-        System.out.println("enqueue adding " + item + this.getClass().getSimpleName());
+        System.out.println("=== 큐 추가 adding " + item + " ===");
         queue.add(item);
     }
 
@@ -40,17 +40,17 @@ public class ThreadPoolQueue {
 
         // 반환할 아이템이 없어면 멈춤
         while (queue.size() == 0) {
-            System.out.println("반환할 큐 없음..wait");
+            System.out.println("=== 반환할 큐 없음..wait ===");
             wait();
         }
 
         // 반환할 아이템이 가득참
         if (queue.size() == MAX_QUEUE_SIZE) {
-            System.out.println("dequeue notify all~! 꽉참!");
+            System.out.println("=== 반환할 item 꽉 참! notify all~! 꽉참! ===");
             notifyAll();
         }
 
-        System.out.println("dequeue removing..");
+        System.out.println("=== dequeue removing.. ===");
         return queue.remove(0);
     }
 

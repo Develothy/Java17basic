@@ -12,31 +12,27 @@ public class ThreadPoolTest {
     }
 
     static void makeThreadPool() {
-        ThreadPool threadPool = new ThreadPool(100, 100);
+        ThreadPool threadPool = new ThreadPool(10, 100);
 
         threadPool.toggleDebugWithQueue(true);  // item 큐 디버깅 on
         threadPool.toggleDebugWithRunnable(true); // thread 디버깅 on
 
-/*        try {
-            // item을 threadPool에 삽입 및 실행
-            for (int i = 0; i <= 100000; i++) {
-                Runnable r = new ThreadTest3(i);
-                threadPool.excute(r);
-            }
-        } catch (Exception e) {
-            System.out.println(e);
-        } */
-
         try {
+            long start = System.currentTimeMillis();
+
             // item을 threadPool에 삽입 및 실행
-            for (int i = 0; i <= 100000; i++) {
+            for (int i = 0; i <= 50; i++) {
                 Thread t = new ThreadTest2(i);
                 threadPool.excute(t);
             }
+
+            System.out.println("==================== 소요시간 : " + (System.currentTimeMillis() - start) / 1000 + "초 ====================");
         } catch (Exception e) {
+            System.out.println("==================== 인터럽트 발생!!!! ====================");
             System.out.println(e);
         }
-/*        try {
+/*
+        try {
             threadPool.stop();
         } catch (InterruptedException e) {
             System.out.println("threadPool is stopped");
@@ -62,6 +58,9 @@ class ThreadTest2 extends Thread {
             start = System.currentTimeMillis();
             System.out.println(this.getName() + " : " + this.getState() + " : " + format.format(start) + " __ " + count);
             Thread.sleep(1000*3);
+            if (this.getName().equals("thread 3")) {
+                throw new InterruptedException();
+            }
             System.out.println(this.getName() + " : sleep 종료 : " + format.format(System.currentTimeMillis()) + " __ " + count);
             increCnt();
         } catch (InterruptedException e) {
@@ -80,7 +79,7 @@ class ThreadTest3 implements Runnable {
     public void run() {
         try {
             System.out.println("=========== " + name + " run!! ===========");
-            Thread.sleep(1000*30);
+            Thread.sleep(1000*3);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
