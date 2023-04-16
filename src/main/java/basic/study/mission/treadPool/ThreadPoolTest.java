@@ -21,7 +21,7 @@ public class ThreadPoolTest {
             long start = System.currentTimeMillis();
 
             // item을 threadPool에 삽입 및 실행
-            for (int i = 0; i <= 50; i++) {
+            for (int i = 0; i <= 100000; i++) {
                 Thread t = new ThreadTest2(i);
                 threadPool.excute(t);
             }
@@ -48,7 +48,7 @@ class ThreadTest2 extends Thread {
         System.out.println(this.getName() + " 생성 : " + format.format(System.currentTimeMillis()));
     }
 
-    void increCnt() {
+    synchronized void increCnt() {
         count++;
     }
 
@@ -58,7 +58,7 @@ class ThreadTest2 extends Thread {
             start = System.currentTimeMillis();
             System.out.println(this.getName() + " : " + this.getState() + " : " + format.format(start) + " __ " + count);
             Thread.sleep(1000*3);
-            if (this.getName().equals("thread 3")) {
+            if (this.getName().equals("thread 99990")) {
                 throw new InterruptedException();
             }
             System.out.println(this.getName() + " : sleep 종료 : " + format.format(System.currentTimeMillis()) + " __ " + count);
