@@ -14,13 +14,23 @@ public class ThreadPoolTest2 {
     static int count = 0;
 
     public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(100); // 최대 10개 Thread를 동시에 실행
+
+        for (int i = 0; i < 100000; i++) {
+            executor.execute(new TestThread(i));
+        }
+        executor.shutdown();
+    }
+    /*
+     * ThreadFactory
+    public static void main(String[] args) {
 
         // 새로운 쓰레드 추가시 로그 출력 ThreadFactory
         ThreadFactory threadFactory = new ThreadFactory() {
             @Override
             public Thread newThread(Runnable r) {
                 Thread thread = new Thread(r);
-                System.out.println("Runnable"+"["+ count++ +"]"+" is created. [[ " + thread.getState() + " ]]");
+                System.out.println("new ThreadFactory() Runnable ["+ count++ +"] is created. [[ " + thread.getState() + " ]]");
                 return thread;
             }
         };
@@ -41,6 +51,25 @@ public class ThreadPoolTest2 {
             e.printStackTrace();
         }
         p.shutdown();
+    }*/
+}
+
+class TestThread extends Thread {
+    String name;
+
+    TestThread (int i) {
+        name = "Thread" + i;
+        System.out.println(name + "생성!");
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(1000 * 3);
+            System.out.println("========= Run!! " + name + " : " + format.format(System.currentTimeMillis()) +" =========");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
 
