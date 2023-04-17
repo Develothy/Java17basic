@@ -8,12 +8,12 @@ public class CollectTest {
     public static void main(String[] args) {
         //collectToListTest();
         //collectJoiningTest();
-        //collectMinMaxTest();
+        collectMinMaxTest();
         //collectOperTest();
         //summaryTest();
         //reduceSumTest();
         //groupingTest();
-        groupingTest2();
+        //groupingTest2();
     }
 
     static void groupingTest2() {
@@ -82,7 +82,9 @@ public class CollectTest {
         Optional<Integer> min = Data.nara.stream()
                 .map(Country::getPopu)
                 .collect(Collectors.minBy(Integer::compare));
-        System.out.println(min.get());
+        //System.out.println(min.get());            // null 체크가 안됨 -> NPE 발생우려
+        min.ifPresent(System.out::println);         // 메서드 레퍼런스 전달 방식
+        min.ifPresent(m -> System.out.println(m));  // 람다식 수행 전달 방식
     }
 
     static void collectJoiningTest() {
